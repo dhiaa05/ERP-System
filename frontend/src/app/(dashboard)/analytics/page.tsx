@@ -14,6 +14,10 @@ import { Loader2, ChevronDown, ChevronUp } from 'lucide-react';
 interface CohortData {
     date: string;
     leads: number;
+    confirmed: number;
+    sent: number;
+    confirmation_rate: number;
+    real_delivery_rate: number;
     delivered: number;
     returned: number;
     delivery_rate: number;
@@ -26,6 +30,7 @@ interface CohortData {
     ad_spend: number;
     net_profit: number;
     status: 'profitable' | 'losing' | 'break-even';
+    orders?: any[];
 }
 
 interface Product {
@@ -74,7 +79,7 @@ export default function AnalyticsPage() {
                     </p>
                 </div>
                 <div className="w-64">
-                    <Select value={selectedProductId} onValueChange={setSelectedProductId}>
+                    <Select value={selectedProductId} onValueChange={(val) => setSelectedProductId(val || 'all')}>
                         <SelectTrigger>
                             <SelectValue placeholder="تصفية حسب المنتج" />
                         </SelectTrigger>
