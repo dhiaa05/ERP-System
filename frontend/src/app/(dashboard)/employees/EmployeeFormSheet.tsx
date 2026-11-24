@@ -83,7 +83,7 @@ export function EmployeeFormSheet() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="role">Rôle</Label>
-            <Select onValueChange={(val) => setValue('role', val)} defaultValue="confirmation">
+            <Select onValueChange={(val) => setValue('role', val || '')} defaultValue="confirmation">
               <SelectTrigger>
                 <SelectValue placeholder="Sélectionner un rôle" />
               </SelectTrigger>

@@ -85,7 +85,7 @@ export function ExpenseFormSheet() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="expense_category_id">Catégorie</Label>
-            <Select onValueChange={(val) => setValue('expense_category_id', val)}>
+            <Select onValueChange={(val) => setValue('expense_category_id', val || '')}>
               <SelectTrigger>
                 <SelectValue placeholder="Sélectionner une catégorie" />
               </SelectTrigger>

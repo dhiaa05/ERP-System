@@ -36,7 +36,7 @@ export function ChartsSection({ timeSeries }: { timeSeries: any[] }) {
                 <XAxis dataKey="date" tickFormatter={formatXAxis} tick={{ fontSize: 12 }} tickMargin={10} />
                 <YAxis tickFormatter={(val) => `${val / 1000}k`} tick={{ fontSize: 12 }} />
                 <Tooltip 
-                  formatter={(value: number) => [formatCurrency(value), ""]} 
+                  formatter={(value: any) => [formatCurrency(Number(value) || 0), ""]} 
                   labelFormatter={(label) => formatXAxis(label as string)}
                 />
                 <Legend />
@@ -63,7 +63,7 @@ export function ChartsSection({ timeSeries }: { timeSeries: any[] }) {
                 <YAxis yAxisId="left" tickFormatter={(val) => `${val / 1000}k`} tick={{ fontSize: 12 }} />
                 <YAxis yAxisId="right" orientation="right" tickFormatter={(val) => `${val / 1000}k`} tick={{ fontSize: 12 }} />
                 <Tooltip 
-                  formatter={(value: number) => [formatCurrency(value), ""]} 
+                  formatter={(value: any) => [formatCurrency(Number(value) || 0), ""]} 
                   labelFormatter={(label) => formatXAxis(label as string)}
                 />
                 <Legend />
@@ -113,7 +113,7 @@ export function ChartsSection({ timeSeries }: { timeSeries: any[] }) {
                 <YAxis yAxisId="left" domain={[0, 100]} tickFormatter={(val) => `${val}%`} tick={{ fontSize: 12 }} />
                 <YAxis yAxisId="right" orientation="right" tick={{ fontSize: 12 }} />
                 <Tooltip 
-                  formatter={(value: number, name: string) => [name === 'ROAS' ? `${value.toFixed(2)}x` : `${value.toFixed(1)}%`, name]} 
+                  formatter={(value: any, name: any) => [name === 'ROAS' ? `${Number(value || 0).toFixed(2)}x` : `${Number(value || 0).toFixed(1)}%`, name]} 
                   labelFormatter={(label) => formatXAxis(label as string)}
                 />
                 <Legend />
